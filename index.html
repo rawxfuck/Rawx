@@ -1,142 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RawX – Premium HD Porn Aggregator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RawX – Premium HD Porn</title>
   <style>
     :root {
-      --bg: #000000;
+      --bg: #000;
       --card: #0f0f0f;
       --text: #f5f5f5;
-      --accent: #e91e63;
-      --glow: rgba(233,30,99,0.6);
-      --border: #222222;
+      --accent: #ff2d6b;
+      --glow: rgba(255,45,107,0.7);
+      --border: #1f1f1f;
       --shadow: 0 20px 60px rgba(0,0,0,0.9);
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
       min-height: 100vh;
       opacity: 0;
-      transition: opacity 2.5s ease;
+      transition: opacity 2s ease;
     }
     body.loaded { opacity: 1; }
     header {
       text-align: center;
-      padding: 8rem 1rem 6rem;
-      background: linear-gradient(135deg, #000, #1a001a);
+      padding: 10rem 1rem 7rem;
+      background: linear-gradient(135deg, #000, #140014);
       position: relative;
       overflow: hidden;
-      transform: translateY(-80px);
+      transform: translateY(-120px);
       opacity: 0;
-      transition: all 1.8s ease-out;
+      transition: all 2s ease-out;
     }
-    header.loaded {
-      transform: translateY(0);
-      opacity: 1;
-    }
+    header.loaded { transform: translateY(0); opacity: 1; }
     header::before {
       content: '';
       position: absolute;
-      top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(233,30,99,0.18) 0%, transparent 70%);
-      animation: pulse 20s infinite;
+      top: -60%; left: -60%; width: 220%; height: 220%;
+      background: radial-gradient(circle at 50% 20%, rgba(255,45,107,0.2) 0%, transparent 70%);
+      animation: pulse 25s infinite;
     }
-    @keyframes pulse { 0%,100% {transform:scale(1);opacity:0.4;} 50% {transform:scale(1.5);opacity:0.1;} }
+    @keyframes pulse { 0%,100% {transform:scale(1);opacity:0.5;} 50% {transform:scale(1.6);opacity:0.1;} }
     h1 {
-      font-size: clamp(5rem, 12vw, 9rem);
+      font-size: clamp(6rem, 15vw, 11rem);
       color: var(--accent);
-      text-shadow: 0 0 60px var(--glow);
-      margin-bottom: 1rem;
-      animation: glow-text 5s infinite alternate;
+      text-shadow: 0 0 80px var(--glow);
+      margin-bottom: 1.5rem;
+      animation: glow-text 8s infinite alternate;
     }
-    @keyframes glow-text { from {text-shadow:0 0 30px var(--glow);} to {text-shadow:0 0 90px var(--glow);} }
+    @keyframes glow-text { from {text-shadow:0 0 40px var(--glow);} to {text-shadow:0 0 120px var(--glow);} }
     .tagline {
-      font-size: clamp(1.5rem, 5vw, 2rem);
-      color: #ccc;
-      margin-bottom: 3rem;
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
+      color: #ddd;
+      margin-bottom: 4rem;
     }
     .search-bar {
-      max-width: 900px;
-      margin: 3rem auto;
+      max-width: 1000px;
+      margin: 0 auto 5rem;
       padding: 0 1rem;
-      transform: translateY(50px);
+      transform: translateY(60px);
       opacity: 0;
-      transition: all 1.8s ease-out 0.5s;
+      transition: all 2s ease-out 1.2s;
     }
-    .search-bar.loaded {
-      transform: translateY(0);
-      opacity: 1;
-    }
+    .search-bar.loaded { transform: translateY(0); opacity: 1; }
     #searchInput {
       width: 100%;
-      padding: 1.6rem 2.5rem;
-      font-size: 1.3rem;
-      border: 2px solid #333;
-      border-radius: 60px;
-      background: #111;
+      padding: 1.8rem 3rem;
+      font-size: 1.5rem;
+      border: 3px solid #222;
+      border-radius: 70px;
+      background: #0f0f0f;
       color: #fff;
       outline: none;
-      transition: all 0.4s ease;
+      transition: all 0.5s ease;
     }
     #searchInput:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 10px rgba(233,30,99,0.2);
+      box-shadow: 0 0 0 12px rgba(255,45,107,0.25);
     }
     .container {
-      max-width: 1900px;
+      max-width: 2200px;
       margin: 0 auto;
-      padding: 0 1.5rem 6rem;
+      padding: 0 2rem 8rem;
       opacity: 0;
-      transform: translateY(80px);
-      transition: all 2.2s ease-out 1s;
+      transform: translateY(100px);
+      transition: all 2.5s ease-out 1.5s;
     }
-    .container.loaded {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .container.loaded { opacity: 1; transform: translateY(0); }
     .videos {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+      gap: 3.5rem;
     }
     .video-card {
       background: var(--card);
-      border-radius: 18px;
+      border-radius: 24px;
       overflow: hidden;
-      transition: all 0.6s ease;
+      transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       opacity: 0;
-      transform: translateY(100px) scale(0.9);
+      transform: translateY(120px) scale(0.85);
       box-shadow: var(--shadow);
     }
-    .video-card.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    .video-card:hover {
-      transform: translateY(-30px) scale(1.08);
-      box-shadow: 0 50px 120px rgba(233,30,99,0.6);
-    }
-    iframe {
-      width: 100%;
-      height: 320px;
-      border: none;
-      background: #000;
-      transition: transform 0.7s ease;
-    }
-    .video-card:hover iframe {
-      transform: scale(1.15);
-    }
+    .video-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+    .video-card:hover { transform: translateY(-30px) scale(1.08); box-shadow: 0 60px 140px rgba(255,45,107,0.7); }
+    iframe { width:100%; height:340px; border:none; background:#000; transition:transform 0.8s ease; }
+    .video-card:hover iframe { transform:scale(1.18); }
     .video-title {
-      padding: 1.8rem 1.5rem;
-      font-size: 1.2rem;
+      padding: 2rem 1.5rem;
+      font-size: 1.3rem;
       background: linear-gradient(to bottom, #1e1e1e, #151515);
       text-align: center;
-      min-height: 90px;
+      min-height: 100px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -146,11 +123,11 @@
       border: 1px solid #222;
       border-radius: 20px;
       margin: 8rem auto;
-      max-width: 970px;
+      max-width: 1200px;
       padding: 5rem 4rem;
       text-align: center;
       color: #888;
-      font-size: 1.5em;
+      font-size: 1.6em;
       box-shadow: var(--shadow);
     }
     footer {
@@ -180,39 +157,12 @@
     </div>
 
     <div class="videos">
-      <!-- 30 real Eporner embeds (high-view videos) -->
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/1k9j9k9j9k9" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea Big Tits Fuck</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/2l8m7n6o5p" allowfullscreen loading="lazy"></iframe><div class="video-title">Lela Star Latina Anal</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/3q4r5s6t7u" allowfullscreen loading="lazy"></iframe><div class="video-title">Victoria June Ass Worship</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4v5w6x7y8z" allowfullscreen loading="lazy"></iframe><div class="video-title">Aletta Ocean Classic Scene</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9a0b1c2d3e" allowfullscreen loading="lazy"></iframe><div class="video-title">Gabbie Carter Threesome</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4f5g6h7i8j" allowfullscreen loading="lazy"></iframe><div class="video-title">Emily Willis Anal</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9k0l1m2n3o" allowfullscreen loading="lazy"></iframe><div class="video-title">Autumn Falls Big Tits</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4p5q6r7s8t" allowfullscreen loading="lazy"></iframe><div class="video-title">Violet Myers Latina</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9u0v1w2x3y" allowfullscreen loading="lazy"></iframe><div class="video-title">Blake Blossom New 2025</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4z5a6b7c8d" allowfullscreen loading="lazy"></iframe><div class="video-title">Kenzie Reeves Petite</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9e0f1g2h3i" allowfullscreen loading="lazy"></iframe><div class="video-title">Riley Reid Classic</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4j5k6l7m8n" allowfullscreen loading="lazy"></iframe><div class="video-title">Abella Danger Anal</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9o0p1q2r3s" allowfullscreen loading="lazy"></iframe><div class="video-title">Angela White Big Tits</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4t5u6v7w8x" allowfullscreen loading="lazy"></iframe><div class="video-title">Jade Kush Asian</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9y0z1a2b3c" allowfullscreen loading="lazy"></iframe><div class="video-title">Lulu Chu Petite</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4d5e6f7g8h" allowfullscreen loading="lazy"></iframe><div class="video-title">Kayley Gunner Blonde</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9i0j1k2l3m" allowfullscreen loading="lazy"></iframe><div class="video-title">Octavia Red New</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4n5o6p7q8r" allowfullscreen loading="lazy"></iframe><div class="video-title">Violet Myers Threesome</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9s0t1u2v3w" allowfullscreen loading="lazy"></iframe><div class="video-title">Blake Blossom 2026</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4x5y6z7a8b" allowfullscreen loading="lazy"></iframe><div class="video-title">Emily Willis New Scene</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9c0d1e2f3g" allowfullscreen loading="lazy"></iframe><div class="video-title">Gabbie Carter 2025</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4h5i6j7k8l" allowfullscreen loading="lazy"></iframe><div class="video-title">Kenzie Reeves New</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9m0n1o2p3q" allowfullscreen loading="lazy"></iframe><div class="video-title">Autumn Falls Classic</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4r5s6t7u8v" allowfullscreen loading="lazy"></iframe><div class="video-title">Violet Myers Amateur</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9w0x1y2z3a" allowfullscreen loading="lazy"></iframe><div class="video-title">Riley Reid 2026</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4b5c6d7e8f" allowfullscreen loading="lazy"></iframe><div class="video-title">Abella Danger 2025</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9g0h1i2j3k" allowfullscreen loading="lazy"></iframe><div class="video-title">Angela White New</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4l5m6n7o8p" allowfullscreen loading="lazy"></iframe><div class="video-title">Jade Kush 2024</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9q0r1s2t3u" allowfullscreen loading="lazy"></iframe><div class="video-title">Lulu Chu 2025</div></div>
+      <div class="video-card"><iframe src="" allowfullscreen loading="lazy"></iframe><div class="video-title">Video 1</div></div>
+      <!-- Is block ko copy-paste kar ke jitne chahiye utne videos daal -->
+      <!-- src="" mein Pornhub/Xvideos se real embed link paste kar -->
     </div>
 
-    <div class="ad-block" style="background:#1a1a1a;border:1px solid #222;border-radius:18px;margin:8rem auto;padding:5rem;text-align:center;color:#888;font-size:1.5em;max-width:1200px;">
+    <div class="ad-block">
       Premium Ad Space – 970x250 Banner (Replace with ExoClick code)
     </div>
 
@@ -222,7 +172,6 @@
   </div>
 
   <script>
-    // Live search filter
     const search = document.getElementById('searchInput');
     const cards = document.querySelectorAll('.video-card');
 
@@ -234,14 +183,13 @@
       });
     });
 
-    // Ultra premium start animation
     window.addEventListener('load', () => {
       document.body.classList.add('loaded');
       setTimeout(() => {
         document.querySelectorAll('.video-card').forEach((card, i) => {
-          setTimeout(() => card.classList.add('visible'), i * 80);
+          setTimeout(() => card.classList.add('visible'), i * 100);
         });
-      }, 1000);
+      }, 1200);
     });
   </script>
 </body>
