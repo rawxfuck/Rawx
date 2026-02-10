@@ -1,184 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RawX – Premium HD Porn</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RawX – Ultra Premium</title>
   <style>
-    :root {
-      --bg: #000;
-      --card: #0f0f0f;
-      --text: #f5f5f5;
-      --accent: #ff2d6b;
-      --glow: rgba(255,45,107,0.7);
-      --border: #1f1f1f;
-      --shadow: 0 20px 60px rgba(0,0,0,0.9);
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
-      opacity: 0;
-      transition: opacity 2s ease;
-    }
-    body.loaded { opacity: 1; }
-    header {
-      text-align: center;
-      padding: 10rem 1rem 7rem;
-      background: linear-gradient(135deg, #000, #140014);
-      position: relative;
-      overflow: hidden;
-      transform: translateY(-120px);
-      opacity: 0;
-      transition: all 2s ease-out;
-    }
-    header.loaded { transform: translateY(0); opacity: 1; }
-    header::before {
-      content: '';
-      position: absolute;
-      top: -60%; left: -60%; width: 220%; height: 220%;
-      background: radial-gradient(circle at 50% 20%, rgba(255,45,107,0.2) 0%, transparent 70%);
-      animation: pulse 25s infinite;
-    }
-    @keyframes pulse { 0%,100% {transform:scale(1);opacity:0.5;} 50% {transform:scale(1.6);opacity:0.1;} }
-    h1 {
-      font-size: clamp(6rem, 15vw, 11rem);
-      color: var(--accent);
-      text-shadow: 0 0 80px var(--glow);
-      margin-bottom: 1.5rem;
-      animation: glow-text 8s infinite alternate;
-    }
-    @keyframes glow-text { from {text-shadow:0 0 40px var(--glow);} to {text-shadow:0 0 120px var(--glow);} }
-    .tagline {
-      font-size: clamp(1.8rem, 6vw, 2.5rem);
-      color: #ddd;
-      margin-bottom: 4rem;
-    }
-    .search-bar {
-      max-width: 1000px;
-      margin: 0 auto 5rem;
-      padding: 0 1rem;
-      transform: translateY(60px);
-      opacity: 0;
-      transition: all 2s ease-out 1.2s;
-    }
-    .search-bar.loaded { transform: translateY(0); opacity: 1; }
-    #searchInput {
-      width: 100%;
-      padding: 1.8rem 3rem;
-      font-size: 1.5rem;
-      border: 3px solid #222;
-      border-radius: 70px;
-      background: #0f0f0f;
-      color: #fff;
-      outline: none;
-      transition: all 0.5s ease;
-    }
-    #searchInput:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 12px rgba(255,45,107,0.25);
-    }
-    .container {
-      max-width: 2200px;
-      margin: 0 auto;
-      padding: 0 2rem 8rem;
-      opacity: 0;
-      transform: translateY(100px);
-      transition: all 2.5s ease-out 1.5s;
-    }
-    .container.loaded { opacity: 1; transform: translateY(0); }
-    .videos {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
-      gap: 3.5rem;
-    }
-    .video-card {
-      background: var(--card);
-      border-radius: 24px;
-      overflow: hidden;
-      transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      opacity: 0;
-      transform: translateY(120px) scale(0.85);
-      box-shadow: var(--shadow);
-    }
-    .video-card.visible { opacity: 1; transform: translateY(0) scale(1); }
-    .video-card:hover { transform: translateY(-30px) scale(1.08); box-shadow: 0 60px 140px rgba(255,45,107,0.7); }
-    iframe { width:100%; height:340px; border:none; background:#000; transition:transform 0.8s ease; }
-    .video-card:hover iframe { transform:scale(1.18); }
-    .video-title {
-      padding: 2rem 1.5rem;
-      font-size: 1.3rem;
-      background: linear-gradient(to bottom, #1e1e1e, #151515);
-      text-align: center;
-      min-height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .ad-block {
-      background: #1a1a1a;
-      border: 1px solid #222;
-      border-radius: 20px;
-      margin: 8rem auto;
-      max-width: 1200px;
-      padding: 5rem 4rem;
-      text-align: center;
-      color: #888;
-      font-size: 1.6em;
-      box-shadow: var(--shadow);
-    }
-    footer {
-      text-align: center;
-      padding: 8rem 1rem 4rem;
-      background: linear-gradient(to top, #000, #111);
-      font-size: 1.1rem;
-      color: #777;
-      border-top: 1px solid #222;
-    }
+    body { margin:0; background:#000; color:#fff; font-family:'Helvetica Neue',sans-serif; }
+    header { text-align:center; padding:100px 20px; background:linear-gradient(#000,#140014); }
+    h1 { font-size:8em; color:#ff3366; text-shadow:0 0 50px #ff3366aa; animation:glow 4s infinite alternate; }
+    @keyframes glow { from {text-shadow:0 0 30px #ff3366;} to {text-shadow:0 0 80px #ff3366;} }
+    .tag { font-size:2.5em; color:#ccc; margin:20px 0; }
+    .search { max-width:800px; margin:40px auto; }
+    #search { width:100%; padding:20px; font-size:1.5em; border-radius:50px; border:2px solid #333; background:#111; color:#fff; outline:none; }
+    #search:focus { border-color:#ff3366; box-shadow:0 0 20px #ff3366aa; }
+    .container { max-width:2000px; margin:0 auto; padding:40px 20px; }
+    .videos { display:grid; grid-template-columns:repeat(auto-fill, minmax(450px,1fr)); gap:30px; }
+    .video { background:#111; border-radius:20px; overflow:hidden; transition:0.5s; opacity:0; transform:scale(0.9); }
+    .video.visible { opacity:1; transform:scale(1); }
+    .video:hover { transform:scale(1.05); box-shadow:0 30px 80px #ff3366aa; }
+    iframe { width:100%; height:350px; border:none; }
+    .title { padding:20px; text-align:center; background:#1a1a1a; font-size:1.3em; }
+    .ad { background:#111; border:1px solid #333; border-radius:20px; margin:80px auto; padding:60px; text-align:center; color:#888; font-size:1.8em; max-width:1200px; }
+    footer { text-align:center; padding:80px 20px; background:#000; color:#777; border-top:1px solid #222; }
   </style>
 </head>
 <body>
 
   <header>
     <h1>RawX</h1>
-    <p class="tagline">Premium Free HD Porn – Fast Streaming, No Signup, Pure Vibe</p>
+    <p class="tag">Premium Free HD Porn – Fast Streaming, No Signup</p>
   </header>
 
-  <div class="search-bar">
-    <input id="searchInput" placeholder="Search videos..." />
+  <div class="search">
+    <input id="search" placeholder="Search videos..." />
   </div>
 
   <div class="container">
-    <div class="ad-block">
+    <div class="ad">
       Premium Ad Space – 970x250 Banner (Replace with ExoClick code)
     </div>
 
     <div class="videos">
-      <div class="video-card"><iframe src="" allowfullscreen loading="lazy"></iframe><div class="video-title">Video 1</div></div>
-      <!-- Is block ko copy-paste kar ke jitne chahiye utne videos daal -->
-      <!-- src="" mein Pornhub/Xvideos se real embed link paste kar -->
+      <div class="video"><iframe src="" allowfullscreen></iframe><div class="title">Video 1</div></div>
+      <!-- Duplicate upper block for more videos -->
+      <!-- src="" mein real embed link paste kar -->
     </div>
 
-    <div class="ad-block">
+    <div class="ad">
       Premium Ad Space – 970x250 Banner (Replace with ExoClick code)
     </div>
 
     <footer>
-      18+ only. All videos embedded from public sources. Not available in India. High risk – use responsibly.
+      18+ only. Not available in India.
     </footer>
   </div>
 
   <script>
-    const search = document.getElementById('searchInput');
-    const cards = document.querySelectorAll('.video-card');
+    const search = document.getElementById('search');
+    const cards = document.querySelectorAll('.video');
 
     search.addEventListener('input', (e) => {
       const term = e.target.value.toLowerCase().trim();
       cards.forEach(card => {
-        const title = card.querySelector('.video-title').textContent.toLowerCase();
+        const title = card.querySelector('.title').textContent.toLowerCase();
         card.style.display = title.includes(term) || term === '' ? 'block' : 'none';
       });
     });
@@ -186,10 +70,10 @@
     window.addEventListener('load', () => {
       document.body.classList.add('loaded');
       setTimeout(() => {
-        document.querySelectorAll('.video-card').forEach((card, i) => {
+        document.querySelectorAll('.video').forEach((card, i) => {
           setTimeout(() => card.classList.add('visible'), i * 100);
         });
-      }, 1200);
+      }, 800);
     });
   </script>
 </body>
