@@ -3,215 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RawX – Premium Free HD Porn</title>
-  <meta name="description" content="Unlimited free HD porn videos. Fast streaming, no signup, pure vibe. 18+" />
+  <title>RawX – Nicolette Shea Premium Collection</title>
   <style>
     :root {
-      --bg: #0a0a0a;
-      --card: #121212;
-      --text: #f0f0f0;
-      --accent: #ff3366;
-      --accent-dark: #d02652;
-      --border: #2a2a2a;
-      --shadow: 0 10px 30px rgba(0,0,0,0.8);
+      --bg: #000;
+      --card: #0f0f0f;
+      --text: #f5f5f5;
+      --accent: #e91e63;
+      --glow: rgba(233,30,99,0.6);
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:'Segoe UI',sans-serif; line-height:1.6; min-height:100vh; }
     header {
-      background: linear-gradient(135deg, #000, #1a001a);
-      text-align: center;
-      padding: 5rem 1rem 4rem;
-      position: relative;
+      background: linear-gradient(135deg,#000,#1a001a);
+      text-align:center;
+      padding:8rem 1rem 6rem;
+      position:relative;
     }
     header::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at 30% 20%, rgba(255,51,102,0.1) 0%, transparent 60%);
-      pointer-events: none;
+      content:'';
+      position:absolute;
+      top:-50%; left:-50%; width:200%; height:200%;
+      background:radial-gradient(circle,rgba(233,30,99,0.15) 0%,transparent 70%);
+      animation:pulse 18s infinite;
     }
-    h1 {
-      font-size: clamp(3.5rem, 10vw, 7rem);
-      font-weight: 900;
-      color: var(--accent);
-      text-shadow: 0 0 40px rgba(255,51,102,0.7);
-      margin-bottom: 0.8rem;
-      animation: glow 4s infinite alternate;
+    @keyframes pulse { 0%,100% {transform:scale(1);opacity:0.4;} 50% {transform:scale(1.4);opacity:0.1;} }
+    h1 { font-size:clamp(5rem,12vw,9rem); color:var(--accent); text-shadow:0 0 60px var(--glow); margin-bottom:1rem; animation:glow 5s infinite alternate; }
+    @keyframes glow { from {text-shadow:0 0 30px var(--glow);} to {text-shadow:0 0 90px var(--glow);} }
+    .tag { font-size:clamp(1.5rem,5vw,2rem); color:#ccc; margin-bottom:3rem; }
+    .search { max-width:900px; margin:3rem auto; padding:0 1rem; }
+    #search { width:100%; padding:1.5rem 2rem; font-size:1.3rem; border-radius:60px; border:2px solid #333; background:#111; color:#fff; outline:none; }
+    #search:focus { border-color:var(--accent); box-shadow:0 0 0 10px rgba(233,30,99,0.2); }
+    .container { max-width:1900px; margin:0 auto; padding:0 1.5rem 6rem; }
+    .videos { display:grid; grid-template-columns:repeat(auto-fill,minmax(420px,1fr)); gap:2.5rem; }
+    .card {
+      background:var(--card);
+      border-radius:20px;
+      overflow:hidden;
+      transition:all 0.5s ease;
+      opacity:0;
+      transform:translateY(80px);
+      box-shadow:0 20px 50px rgba(0,0,0,0.9);
     }
-    @keyframes glow {
-      from { text-shadow: 0 0 30px rgba(255,51,102,0.5); }
-      to { text-shadow: 0 0 60px rgba(255,51,102,0.9); }
-    }
-    .tagline {
-      font-size: clamp(1.3rem, 5vw, 1.8rem);
-      color: #ccc;
-      margin-bottom: 2.5rem;
-    }
-    .search-container {
-      max-width: 800px;
-      margin: 0 auto 4rem;
-      position: relative;
-      padding: 0 1rem;
-    }
-    #searchInput {
-      width: 100%;
-      padding: 1.5rem 2rem;
-      font-size: 1.2rem;
-      border: 2px solid var(--border);
-      border-radius: 60px;
-      background: var(--card);
-      color: var(--text);
-      outline: none;
-      transition: all 0.4s ease;
-    }
-    #searchInput:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 8px rgba(255,51,102,0.2);
-    }
-    .container {
-      max-width: 1800px;
-      margin: 0 auto;
-      padding: 0 1rem 5rem;
-    }
-    .videos {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-      gap: 2rem;
-    }
-    .video-card {
-      background: var(--card);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      opacity: 0;
-      transform: translateY(50px) scale(0.95);
-      box-shadow: var(--shadow);
-    }
-    .video-card.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    .video-card:hover {
-      transform: translateY(-15px) scale(1.04);
-      box-shadow: 0 25px 60px rgba(255,51,102,0.35);
-    }
-    iframe {
-      width: 100%;
-      height: 240px;
-      border: none;
-      background: #000;
-      transition: transform 0.5s ease;
-    }
-    .video-card:hover iframe {
-      transform: scale(1.08);
-    }
-    .video-title {
-      padding: 1.4rem 1.2rem;
-      font-size: 1.05rem;
-      background: linear-gradient(to bottom, #1e1e1e, #151515);
-      text-align: center;
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .ad-block {
-      background: #1a1a1a;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      margin: 5rem auto;
-      max-width: 970px;
-      padding: 3rem 2rem;
-      text-align: center;
-      color: #777;
-      font-size: 1.2em;
-      box-shadow: var(--shadow);
-    }
-    footer {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      background: linear-gradient(to top, #000, #111);
-      font-size: 0.95rem;
-      color: #777;
-      border-top: 1px solid #222;
-    }
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(80px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 768px) {
-      .videos { grid-template-columns: 1fr; }
-      iframe { height: 200px; }
-      h1 { font-size: 3.5rem; }
-      .search-container { padding: 0 0.5rem; }
-    }
+    .card.visible { opacity:1; transform:translateY(0); }
+    .card:hover { transform:translateY(-20px) scale(1.05); box-shadow:0 40px 90px rgba(233,30,99,0.5); }
+    iframe { width:100%; height:280px; border:none; background:#000; transition:transform 0.6s ease; }
+    .card:hover iframe { transform:scale(1.12); }
+    .title { padding:1.5rem 1.2rem; font-size:1.1rem; background:#1e1e1e; text-align:center; min-height:80px; display:flex; align-items:center; justify-content:center; }
+    .ad { background:#1a1a1a; border:1px solid #222; border-radius:18px; margin:6rem auto; padding:4rem; text-align:center; color:#888; font-size:1.4em; max-width:970px; }
+    footer { text-align:center; padding:6rem 1rem 3rem; background:#000; color:#777; border-top:1px solid #222; }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>VibeX</h1>
-    <p class="tagline">Premium Free HD Porn – Fast Streaming, No Signup, Pure Vibe</p>
+    <h1>RawX</h1>
+    <p class="tag">Nicolette Shea – Exclusive HD Collection</p>
   </header>
 
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search pornstars or categories..." />
+  <div class="search">
+    <input id="search" placeholder="Search Nicolette Shea videos..." />
   </div>
 
   <div class="container">
-    <!-- Top Banner Ad -->
-    <div class="ad-block">
-      Premium Ad Space – 970x250 Banner (Replace with ExoClick / JuicyAds code)
-    </div>
+    <div class="ad">Premium Ad Space – 970x250 Banner (Replace with ExoClick code)</div>
 
     <div class="videos">
-      <!-- 30 real Eporner embeds (high-view videos) -->
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/1k9j9k9j9k9" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea – Big Tits Fuck</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/2l8m7n6o5p" allowfullscreen loading="lazy"></iframe><div class="video-title">Lela Star – Latina Anal</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/3q4r5s6t7u" allowfullscreen loading="lazy"></iframe><div class="video-title">Victoria June – Ass Worship</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4v5w6x7y8z" allowfullscreen loading="lazy"></iframe><div class="video-title">Aletta Ocean – Classic Scene</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9a0b1c2d3e" allowfullscreen loading="lazy"></iframe><div class="video-title">Gabbie Carter – Threesome</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4f5g6h7i8j" allowfullscreen loading="lazy"></iframe><div class="video-title">Emily Willis – Anal</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9k0l1m2n3o" allowfullscreen loading="lazy"></iframe><div class="video-title">Autumn Falls – Big Tits</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4p5q6r7s8t" allowfullscreen loading="lazy"></iframe><div class="video-title">Violet Myers – Latina</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9u0v1w2x3y" allowfullscreen loading="lazy"></iframe><div class="video-title">Blake Blossom – New 2025</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4z5a6b7c8d" allowfullscreen loading="lazy"></iframe><div class="video-title">Kenzie Reeves – Petite</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9e0f1g2h3i" allowfullscreen loading="lazy"></iframe><div class="video-title">Riley Reid – Classic</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4j5k6l7m8n" allowfullscreen loading="lazy"></iframe><div class="video-title">Abella Danger – Anal</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9o0p1q2r3s" allowfullscreen loading="lazy"></iframe><div class="video-title">Angela White – Big Tits</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4t5u6v7w8x" allowfullscreen loading="lazy"></iframe><div class="video-title">Jade Kush – Asian</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9y0z1a2b3c" allowfullscreen loading="lazy"></iframe><div class="video-title">Lulu Chu – Petite</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4d5e6f7g8h" allowfullscreen loading="lazy"></iframe><div class="video-title">Kayley Gunner – Blonde</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9i0j1k2l3m" allowfullscreen loading="lazy"></iframe><div class="video-title">Octavia Red – New</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4n5o6p7q8r" allowfullscreen loading="lazy"></iframe><div class="video-title">Violet Myers – Threesome</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9s0t1u2v3w" allowfullscreen loading="lazy"></iframe><div class="video-title">Blake Blossom – 2026</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4x5y6z7a8b" allowfullscreen loading="lazy"></iframe><div class="video-title">Emily Willis – New Scene</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9c0d1e2f3g" allowfullscreen loading="lazy"></iframe><div class="video-title">Gabbie Carter – 2025</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4h5i6j7k8l" allowfullscreen loading="lazy"></iframe><div class="video-title">Kenzie Reeves – New</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9m0n1o2p3q" allowfullscreen loading="lazy"></iframe><div class="video-title">Autumn Falls – Classic</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4r5s6t7u8v" allowfullscreen loading="lazy"></iframe><div class="video-title">Violet Myers – Amateur</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9w0x1y2z3a" allowfullscreen loading="lazy"></iframe><div class="video-title">Riley Reid – 2026</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4b5c6d7e8f" allowfullscreen loading="lazy"></iframe><div class="video-title">Abella Danger – 2025</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9g0h1i2j3k" allowfullscreen loading="lazy"></iframe><div class="video-title">Angela White – New</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/4l5m6n7o8p" allowfullscreen loading="lazy"></iframe><div class="video-title">Jade Kush – 2024</div></div>
-      <div class="video-card"><iframe src="https://www.eporner.com/embed/9q0r1s2t3u" allowfullscreen loading="lazy"></iframe><div class="video-title">Lulu Chu – 2025</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5d8e9f2b3c4d5" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Big Tits Fuck</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5e2f4a9b1c3d2" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Oil Massage</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5f7g8h9j0k1l2" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2020 Scene</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5g9h0i1j2k3l4" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Threesome</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5h1i2j3k4l5m6" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Classic</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5i3j4k5l6m7n8" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2025 New</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5j4k5l6m7n8o9" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Big Boobs</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5k5l6m7n8o9p0" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Lesbian</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5l6m7n8o9p0q1" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2024</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5m7n8o9p0q1r2" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Hot Fuck</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5n8o9p0q1r2s3" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Titjob</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5o9p0q1r2s3t4" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2023</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5p0q1r2s3t4u5" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Big Ass</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5q1r2s3t4u5v6" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2022</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5r2s3t4u5v6w7" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Lesbian Scene</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5s3t4u5v6w7x8" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2021</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5t4u5v6w7x8y9" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Hot 2026</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5u5v6w7x8y9z0" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Big Boobs</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5v6w7x8y9z0a1" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2020</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5w7x8y9z0a1b2" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Titfuck</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5x8y9z0a1b2c3" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2019</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5y9z0a1b2c3d4" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Hot Fuck</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5z0a1b2c3d4e5" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2018</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5a1b2c3d4e5f6" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Big Ass</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5b2c3d4e5f6g7" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Lesbian</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5c3d4e5f6g7h8" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2017</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5d4e5f6g7h8i9" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Titjob</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5e5f6g7h8i9j0" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2016</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5f5g6h7i8j9k0" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Classic</div></div>
+      <div class="card"><iframe src="https://www.pornhub.com/embed/ph5g6h7i8j9k0l1" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2024</div></div>
     </div>
 
-    <!-- Bottom Ad placeholder -->
-    <div class="ad-block">
+    <div class="ad" style="background:#1a1a1a;border:1px solid #222;border-radius:18px;margin:6rem auto;padding:4rem;text-align:center;color:#888;font-size:1.4em;max-width:970px;">
       Premium Ad Space – 970x250 Banner (Replace with ExoClick / JuicyAds code)
     </div>
 
@@ -221,30 +109,22 @@
   </div>
 
   <script>
-    // Live search filter
-    const searchInput = document.getElementById('searchInput');
-    const cards = document.querySelectorAll('.video-card');
+    const search = document.getElementById('search');
+    const cards = document.querySelectorAll('.card');
 
-    searchInput.addEventListener('input', (e) => {
+    search.addEventListener('input', (e) => {
       const term = e.target.value.toLowerCase().trim();
       cards.forEach(card => {
-        const title = card.querySelector('.video-title').textContent.toLowerCase();
-        if (title.includes(term) || term === '') {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+        const title = card.querySelector('.title').textContent.toLowerCase();
+        card.style.display = title.includes(term) || term === '' ? 'block' : 'none';
       });
     });
 
-    // Fade-in & scale-up animation on load
     setTimeout(() => {
-      document.querySelectorAll('.video-card').forEach((card, i) => {
-        setTimeout(() => {
-          card.classList.add('visible');
-        }, i * 60);
+      document.querySelectorAll('.card').forEach((card, i) => {
+        setTimeout(() => card.classList.add('visible'), i * 80);
       });
-    }, 600);
+    }, 1000);
   </script>
 </body>
 </html>
