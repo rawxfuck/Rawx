@@ -3,39 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RawX – Premium HD Porn</title>
-  <meta name="description" content="RawX – Exclusive free HD porn videos. Fast streaming, no signup. 18+ only." />
+  <title>RawX – Ultra Premium HD Adult</title>
+  <meta name="description" content="RawX – Exclusive ultra HD adult videos. Fast, private, premium. 18+ only." />
   <style>
     :root {
-      --bg: #000;
-      --card: #0f0f0f;
-      --text: #f5f5f5;
-      --accent: #e91e63;
-      --glow: rgba(233,30,99,0.6);
-      --border: #222;
+      --bg: #000000;
+      --card: #0b0b0b;
+      --text: #f8f8f8;
+      --accent: #ff2d6b;
+      --glow: rgba(255,45,107,0.7);
+      --border: #1f1f1f;
+      --shadow: 0 20px 60px rgba(0,0,0,0.9);
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
       min-height: 100vh;
       opacity: 0;
-      transition: opacity 1.5s ease;
+      transition: opacity 2s ease;
     }
-    body.loaded {
-      opacity: 1;
-    }
+    body.loaded { opacity: 1; }
     header {
       text-align: center;
-      padding: 6rem 1rem 5rem;
-      background: linear-gradient(135deg, #000, #1a001a);
+      padding: 10rem 1rem 7rem;
+      background: linear-gradient(135deg, #000, #140014);
       position: relative;
       overflow: hidden;
-      transform: translateY(-50px);
+      transform: translateY(-100px);
       opacity: 0;
-      transition: all 1.2s ease-out;
+      transition: all 1.8s ease-out;
     }
     header.loaded {
       transform: translateY(0);
@@ -45,30 +44,31 @@
       content: '';
       position: absolute;
       top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(233,30,99,0.15) 0%, transparent 70%);
-      animation: pulse 18s infinite;
+      background: radial-gradient(circle at 40% 30%, rgba(255,45,107,0.18) 0%, transparent 70%);
+      animation: pulse 20s infinite;
     }
-    @keyframes pulse { 0%,100% {transform:scale(1);opacity:0.4;} 50% {transform:scale(1.4);opacity:0.1;} }
+    @keyframes pulse { 0%,100% {transform:scale(1);opacity:0.4;} 50% {transform:scale(1.5);opacity:0.1;} }
     h1 {
-      font-size: clamp(5rem, 12vw, 9rem);
+      font-size: clamp(6rem, 15vw, 11rem);
+      font-weight: 900;
       color: var(--accent);
-      text-shadow: 0 0 60px var(--glow);
-      margin-bottom: 1rem;
-      animation: glow-text 5s infinite alternate;
+      text-shadow: 0 0 80px var(--glow);
+      margin-bottom: 1.2rem;
+      animation: glow-text 7s infinite alternate;
     }
-    @keyframes glow-text { from {text-shadow:0 0 30px var(--glow);} to {text-shadow:0 0 90px var(--glow);} }
+    @keyframes glow-text { from {text-shadow:0 0 40px var(--glow);} to {text-shadow:0 0 120px var(--glow);} }
     .tagline {
-      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
       color: #ccc;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
     .search-bar {
-      max-width: 900px;
-      margin: 3rem auto;
+      max-width: 1000px;
+      margin: 0 auto 5rem;
       padding: 0 1rem;
-      transform: translateY(30px);
+      transform: translateY(50px);
       opacity: 0;
-      transition: all 1.4s ease-out 0.3s;
+      transition: all 1.8s ease-out 0.5s;
     }
     .search-bar.loaded {
       transform: translateY(0);
@@ -76,86 +76,90 @@
     }
     #searchInput {
       width: 100%;
-      padding: 1.6rem 2.5rem;
-      font-size: 1.3rem;
-      border: 2px solid #333;
+      padding: 1.8rem 3rem;
+      font-size: 1.5rem;
+      border: 3px solid var(--border);
       border-radius: 60px;
-      background: #111;
-      color: #fff;
+      background: var(--card);
+      color: var(--text);
       outline: none;
-      transition: all 0.4s ease;
+      transition: all 0.5s ease;
     }
     #searchInput:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 10px rgba(233,30,99,0.2);
+      box-shadow: 0 0 0 12px rgba(233,30,99,0.25);
     }
     .container {
-      max-width: 1900px;
+      max-width: 2200px;
       margin: 0 auto;
-      padding: 0 1.5rem 6rem;
+      padding: 0 2rem 8rem;
       opacity: 0;
-      transition: opacity 1.8s ease-out 0.6s;
+      transform: translateY(80px);
+      transition: all 2.2s ease-out 1s;
     }
     .container.loaded {
       opacity: 1;
+      transform: translateY(0);
     }
     .videos {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+      gap: 3rem;
     }
     .video-card {
       background: var(--card);
-      border-radius: 18px;
+      border-radius: 24px;
       overflow: hidden;
-      transition: all 0.5s ease;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       opacity: 0;
-      transform: translateY(60px) scale(0.95);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+      transform: translateY(100px) scale(0.9);
+      box-shadow: var(--shadow);
     }
     .video-card.visible {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
     .video-card:hover {
-      transform: translateY(-20px) scale(1.05);
-      box-shadow: 0 40px 90px rgba(233,30,99,0.5);
+      transform: translateY(-30px) scale(1.08);
+      box-shadow: 0 50px 120px rgba(233,30,99,0.6);
     }
     iframe {
       width: 100%;
-      height: 280px;
+      height: 320px;
       border: none;
       background: #000;
-      transition: transform 0.6s ease;
+      transition: transform 0.7s ease;
     }
     .video-card:hover iframe {
-      transform: scale(1.12);
+      transform: scale(1.15);
     }
     .video-title {
-      padding: 1.5rem 1.2rem;
-      font-size: 1.1rem;
-      background: #1e1e1e;
+      padding: 1.8rem 1.5rem;
+      font-size: 1.2rem;
+      background: linear-gradient(to bottom, #1e1e1e, #151515);
       text-align: center;
-      min-height: 80px;
+      min-height: 90px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .ad-block {
-      background: #1a1a1a;
-      border: 1px solid #222;
-      border-radius: 18px;
-      margin: 6rem auto;
-      max-width: 970px;
-      padding: 4rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      margin: 8rem auto;
+      max-width: 1200px;
+      padding: 5rem 4rem;
       text-align: center;
-      color: #888;
-      font-size: 1.4em;
+      color: #777;
+      font-size: 1.6em;
+      box-shadow: var(--shadow);
     }
     footer {
       text-align: center;
-      padding: 6rem 1rem 3rem;
-      background: #000;
+      padding: 8rem 1rem 4rem;
+      background: linear-gradient(to top, #000, #111);
+      font-size: 1.1rem;
       color: #777;
       border-top: 1px solid #222;
     }
@@ -212,7 +216,7 @@
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5h7i8j9k0l1m2" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea New Scene</div></div>
     </div>
 
-    <div class="ad-block" style="background:#1a1a1a;border:1px solid #222;border-radius:18px;margin:6rem auto;padding:4rem;text-align:center;color:#888;font-size:1.4em;max-width:970px;">
+    <div class="ad-block" style="background:#1a1a1a;border:1px solid #222;border-radius:18px;margin:8rem auto;padding:5rem;text-align:center;color:#888;font-size:1.5em;max-width:1200px;">
       Premium Ad Space – 970x250 Banner (Replace with ExoClick code)
     </div>
 
@@ -234,14 +238,14 @@
       });
     });
 
-    // Start animation for whole body and elements
+    // Ultra premium start animation
     window.addEventListener('load', () => {
       document.body.classList.add('loaded');
       setTimeout(() => {
         document.querySelectorAll('.video-card').forEach((card, i) => {
           setTimeout(() => card.classList.add('visible'), i * 80);
         });
-      }, 800);
+      }, 1000);
     });
   </script>
 </body>
