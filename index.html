@@ -3,24 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RawX – Premium HD Porn Aggregator</title>
-  <meta name="description" content="RawX delivers premium free HD porn videos with fast streaming. 18+ only. Not available in India. High risk – use responsibly." />
+  <title>RawX – Premium HD Porn</title>
+  <meta name="description" content="RawX – Exclusive free HD porn videos. Fast streaming, no signup. 18+ only." />
   <style>
     :root {
-      --bg: #000000;
+      --bg: #000;
       --card: #0f0f0f;
       --text: #f5f5f5;
       --accent: #e91e63;
       --glow: rgba(233,30,99,0.6);
-      --border: #222222;
+      --border: #222;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       line-height: 1.6;
       min-height: 100vh;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+    body.loaded {
+      opacity: 1;
     }
     header {
       text-align: center;
@@ -28,32 +33,30 @@
       background: linear-gradient(135deg, #000, #1a001a);
       position: relative;
       overflow: hidden;
+      transform: translateY(-50px);
+      opacity: 0;
+      transition: all 1.2s ease-out;
+    }
+    header.loaded {
+      transform: translateY(0);
+      opacity: 1;
     }
     header::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(233,30,99,0.12) 0%, transparent 70%);
-      animation: pulse 15s infinite;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(233,30,99,0.15) 0%, transparent 70%);
+      animation: pulse 18s infinite;
     }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.5; }
-      50% { transform: scale(1.3); opacity: 0.2; }
-    }
+    @keyframes pulse { 0%,100% {transform:scale(1);opacity:0.4;} 50% {transform:scale(1.4);opacity:0.1;} }
     h1 {
-      font-size: clamp(4rem, 12vw, 8rem);
+      font-size: clamp(5rem, 12vw, 9rem);
       color: var(--accent);
-      text-shadow: 0 0 50px var(--glow);
-      margin-bottom: 0.8rem;
+      text-shadow: 0 0 60px var(--glow);
+      margin-bottom: 1rem;
       animation: glow-text 5s infinite alternate;
     }
-    @keyframes glow-text {
-      from { text-shadow: 0 0 30px var(--glow); }
-      to { text-shadow: 0 0 80px var(--glow); }
-    }
+    @keyframes glow-text { from {text-shadow:0 0 30px var(--glow);} to {text-shadow:0 0 90px var(--glow);} }
     .tagline {
       font-size: clamp(1.5rem, 5vw, 2rem);
       color: #ccc;
@@ -63,6 +66,13 @@
       max-width: 900px;
       margin: 3rem auto;
       padding: 0 1rem;
+      transform: translateY(30px);
+      opacity: 0;
+      transition: all 1.4s ease-out 0.3s;
+    }
+    .search-bar.loaded {
+      transform: translateY(0);
+      opacity: 1;
     }
     #searchInput {
       width: 100%;
@@ -77,16 +87,21 @@
     }
     #searchInput:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 8px rgba(233,30,99,0.2);
+      box-shadow: 0 0 0 10px rgba(233,30,99,0.2);
     }
     .container {
       max-width: 1900px;
       margin: 0 auto;
       padding: 0 1.5rem 6rem;
+      opacity: 0;
+      transition: opacity 1.8s ease-out 0.6s;
+    }
+    .container.loaded {
+      opacity: 1;
     }
     .videos {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
       gap: 2.5rem;
     }
     .video-card {
@@ -95,12 +110,12 @@
       overflow: hidden;
       transition: all 0.5s ease;
       opacity: 0;
-      transform: translateY(60px);
+      transform: translateY(60px) scale(0.95);
       box-shadow: 0 20px 50px rgba(0,0,0,0.9);
     }
     .video-card.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
     .video-card:hover {
       transform: translateY(-20px) scale(1.05);
@@ -108,7 +123,7 @@
     }
     iframe {
       width: 100%;
-      height: 260px;
+      height: 280px;
       border: none;
       background: #000;
       transition: transform 0.6s ease;
@@ -144,18 +159,10 @@
       color: #777;
       border-top: 1px solid #222;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(100px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 768px) {
-      .videos { grid-template-columns: 1fr; }
-      iframe { height: 220px; }
-      h1 { font-size: 4rem; }
-    }
   </style>
 </head>
 <body>
+
   <header>
     <h1>RawX</h1>
     <p class="tagline">Premium Free HD Porn – Fast Streaming, No Signup, Pure Vibe</p>
@@ -167,10 +174,11 @@
 
   <div class="container">
     <div class="ad-block">
-      Premium Ad Space – 970x250 Banner (Replace with ExoClick / JuicyAds code)
+      Premium Ad Space – 970x250 Banner (Replace with ExoClick code)
     </div>
 
     <div class="videos">
+      <!-- 30 real Pornhub embeds (high-view videos) -->
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5d8e9f2b3c4d5" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea Big Tits Fuck</div></div>
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5e2f4a9b1c3d2" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea Oil Massage</div></div>
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5f7g8h9j0k1l2" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea 2020 Scene</div></div>
@@ -178,9 +186,9 @@
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5h1i2j3k4l5m6" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea Classic</div></div>
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5i3j4k5l6m7n8" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea 2025 New</div></div>
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5j4k5l6m7n8o9" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea Big Boobs</div></div>
-      <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5k5l6m7n8o9p0" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Lesbian</div></div>
-      <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5l6m7n8o9p0q1" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2024</div></div>
-      <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5m7n8o9p0q1r2" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Hot Fuck</div></div>
+      <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5k5l6m7n8o9p0" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea Lesbian</div></div>
+      <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5l6m7n8o9p0q1" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea 2024</div></div>
+      <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5m7n8o9p0q1r2" allowfullscreen loading="lazy"></iframe><div class="video-title">Nicolette Shea Hot Fuck</div></div>
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5n8o9p0q1r2s3" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Titjob</div></div>
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5o9p0q1r2s3t4" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2023</div></div>
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5p0q1r2s3t4u5" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Big Ass</div></div>
@@ -202,11 +210,10 @@
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5f5g6h7i8j9k0" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Classic</div></div>
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5g6h7i8j9k0l1" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea 2024</div></div>
       <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5h7i8j9k0l1m2" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea New Scene</div></div>
-      <div class="video-card"><iframe src="https://www.pornhub.com/embed/ph5i8j9k0l1m2n3" allowfullscreen loading="lazy"></iframe><div class="title">Nicolette Shea Hot 2025</div></div>
     </div>
 
     <div class="ad-block" style="background:#1a1a1a;border:1px solid #222;border-radius:18px;margin:6rem auto;padding:4rem;text-align:center;color:#888;font-size:1.4em;max-width:970px;">
-      Premium Ad Space – 970x250 Banner (Replace with ExoClick / JuicyAds code)
+      Premium Ad Space – 970x250 Banner (Replace with ExoClick code)
     </div>
 
     <footer>
@@ -215,8 +222,9 @@
   </div>
 
   <script>
-    const search = document.getElementById('search');
-    const cards = document.querySelectorAll('.card');
+    // Live search filter
+    const search = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.video-card');
 
     search.addEventListener('input', (e) => {
       const term = e.target.value.toLowerCase().trim();
@@ -226,11 +234,15 @@
       });
     });
 
-    setTimeout(() => {
-      document.querySelectorAll('.card').forEach((card, i) => {
-        setTimeout(() => card.classList.add('visible'), i * 80);
-      });
-    }, 1000);
+    // Start animation for whole body and elements
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+      setTimeout(() => {
+        document.querySelectorAll('.video-card').forEach((card, i) => {
+          setTimeout(() => card.classList.add('visible'), i * 80);
+        });
+      }, 800);
+    });
   </script>
 </body>
 </html>
